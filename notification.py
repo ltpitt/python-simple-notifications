@@ -99,8 +99,8 @@ def display_help():
     '''
     This functions displays the command help
     '''
-    print 'Email Example:     --email "Email Subject", "Email Message", "Email recipients"'
-    print 'Pusbullet Example: --pushbullet "Title", "Message"'
+    print 'Email Example:     --email "Email Subject" "Email Message" "Email recipients"'
+    print 'Pusbullet Example: --pushbullet "Title" "Message"'
     print 'Pushover Example:  --pushover "Message"'
 
 
