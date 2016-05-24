@@ -73,6 +73,9 @@ def display_help():
 
 
 def main():
+    '''
+    This functions handles command line use
+    '''
     if len(sys.argv) > 1:
         if sys.argv[1] == "--email":
             print len(sys.argv)
