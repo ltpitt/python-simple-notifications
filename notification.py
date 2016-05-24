@@ -25,6 +25,8 @@ EMAIL_SENDER = 'YOUR_EMAIL'
 EMAIL_PASSWORD = 'YOUR_PASSWORD'
 EMAIL_SERVER = 'smtp.gmail.com'
 EMAIL_SERVER_PORT = '587'
+EMAIL_DEBUG_LEVEL = '1'
+
 
 # Push notification parameters (Pushover)
 PUSHOVER_APP_TOKEN = 'YOUR_APP_TOKEN'
@@ -36,7 +38,8 @@ def send_email(email_subject, notification_msg, email_recipients):
     This functions sends a notification using Email
     '''
     server.connect(EMAIL_SERVER, EMAIL_SERVER_PORT)
-    server.set_debuglevel(1)
+    if EMAIL_DEBUG_LEVEL == '1':
+        server.set_debuglevel(1)
     recipients = [email_recipients]
     msg = MIMEText(notification_msg)
     msg['Subject'] = email_subject
