@@ -59,18 +59,24 @@ def send_email(email_subject, notification_msg, email_recipients):
     server.quit()
 
 
-def send_pushover_notification(message):
+def send_pushover_notification(body):
     '''
     This functions sends a notification using Pushover
+        Args:
+            body (str) : Body of text.
     '''
     conn = httplib.HTTPSConnection("api.pushover.net")
     conn.request("POST", "/1/messages.json",
       urllib.urlencode({
         "token": PUSHOVER_APP_TOKEN,
         "user": USER_KEY,
-        "message": message,
+        "message": body,
       }), { "Content-type": "application/x-www-form-urlencoded" })
-    conn.getresponse()
+    response = conn.getresponse()
+    if response.status != 200:
+        raise Exception('Something wrong')
+    else:
+        print 'Sending complete'
 
 
 def send_pushbullet_notification(title, body):
@@ -93,14 +99,12 @@ def display_help():
     '''
     This functions displays the command help
     '''
-    print 'Email Example:    --email "Email Subject", "Email Message", "Email recipients"'
-    print 'Pushover Example: --pushover "Message"'
+    print 'Email Example:     --email "Email Subject", "Email Message", "Email recipients"'
+    print 'Pusbullet Example: --pushbullet "Title", "Message"'
+    print 'Pushover Example:  --pushover "Message"'
 
 
 def main():
-    '''
-    This functions handles command line use
-    '''
     if len(sys.argv) > 1:
         if sys.argv[1] == "--email":
             print len(sys.argv)
