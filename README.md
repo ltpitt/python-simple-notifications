@@ -1,2 +1,2 @@
 # notification
-A tiny library to send out email and push notifications from your applications
+A tiny Python module to send out Email and push notifications (Pushover) from your applications
