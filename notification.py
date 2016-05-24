@@ -14,6 +14,8 @@
 #
 # It has been tested using smtp.gmail.com and port 587
 
+import requests
+import json
 import smtplib
 import sys
 from email.mime.text import MIMEText
@@ -31,6 +33,10 @@ EMAIL_DEBUG_LEVEL = '1'
 # Push notification parameters (Pushover)
 PUSHOVER_APP_TOKEN = 'YOUR_APP_TOKEN'
 USER_KEY = 'YOUR_USER_KEY'
+
+
+# Push notification parameters (Pushbullet)
+PUSHBULLET_APP_TOKEN = 'YOUR_APP_TOKEN'
 
 
 def send_email(email_subject, notification_msg, email_recipients):
