@@ -64,6 +64,22 @@ def send_pushover_notification(message):
     conn.getresponse()
 
 
+def send_pushbullet_notification(title, body):
+    '''
+    This function sends a notification using Pushbullet
+        Args:
+            title (str) : title of text.
+            body (str) : Body of text.
+    '''
+    data_send = {"type": "note", "title": title, "body": body}
+    resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
+                         headers={'Authorization': 'Bearer ' + PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
+    if resp.status_code != 200:
+        raise Exception('Something wrong')
+    else:
+        print 'Sending complete'
+
+
 def display_help():
     '''
     This functions displays the command help
@@ -89,6 +105,11 @@ def main():
         elif sys.argv[1] == "--pushover":
             if len(sys.argv) == 3:
                 send_pushover_notification(sys.argv[2])
+            else:
+                display_help()
+        elif sys.argv[1] == "--pushbullet":
+            if len(sys.argv) == 4:
+                send_pushbullet_notification(sys.argv[2], sys.argv[3])
             else:
                 display_help()
         else:
