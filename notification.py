@@ -10,7 +10,7 @@
 #         ||      ||
 #
 # This script sends notification using
-# Email or Pushover
+# Email, Pushbullet or Pushover
 #
 # It has been tested using smtp.gmail.com and port 587
 
