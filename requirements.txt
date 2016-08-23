@@ -1,0 +1,7 @@
+requests
+json
+smtplib
+sys
+email
+httplib
+urllib
