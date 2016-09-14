@@ -1,6 +1,2 @@
 requests
-smtplib
-sys
 email
-httplib
-urllib
