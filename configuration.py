@@ -17,7 +17,6 @@
 # Please fill in your data and make sure this configuration file is not readable by other users
 
 # Email notification parameters
-server = smtplib.SMTP()
 EMAIL_PASSWORD = 'YOUR_PASSWORD'
 EMAIL_SERVER = 'smtp.gmail.com'
 EMAIL_SERVER_PORT = '587'
