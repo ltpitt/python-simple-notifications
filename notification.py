@@ -14,13 +14,13 @@
 #
 # Please put your data into configure.py before using this script
 
-import configuration
+import notification_config
 import requests
 import json
-import smtplib
 import sys
 import httplib, urllib
 from email.mime.text import MIMEText
+import smtplib
 
 server = smtplib.SMTP()
 
@@ -32,19 +32,19 @@ def send_email(email_subject, notification_msg, email_recipients):
             notification_msg (str) : Email Body.
             email_recipients (str) : Email recipients.
     '''
-    server.connect(configuration.EMAIL_SERVER, configuration.EMAIL_SERVER_PORT)
-    if configuration.EMAIL_DEBUG_LEVEL == '1':
+    server.connect(notification_config.EMAIL_SERVER, notification_config.EMAIL_SERVER_PORT)
+    if notification_config.EMAIL_DEBUG_LEVEL == '1':
         server.set_debuglevel(1)
     recipients = [email_recipients]
     msg = MIMEText(notification_msg)
     msg['Subject'] = email_subject
-    msg['From'] = configuration.EMAIL_SENDER
+    msg['From'] = notification_config.EMAIL_SENDER
     msg['To'] = ', '.join(recipients)
     server.ehlo()
     server.starttls()
     server.ehlo
-    server.login(configuration.EMAIL_SENDER, configuration.EMAIL_PASSWORD)
-    server.sendmail(configuration.EMAIL_SENDER, recipients, msg.as_string())
+    server.login(notification_config.EMAIL_SENDER, notification_config.EMAIL_PASSWORD)
+    server.sendmail(notification_config.EMAIL_SENDER, recipients, msg.as_string())
     server.quit()
 
 
@@ -57,8 +57,8 @@ def send_pushover_notification(body):
     conn = httplib.HTTPSConnection("api.pushover.net")
     conn.request("POST", "/1/messages.json",
       urllib.urlencode({
-        "token": configuration.PUSHOVER_APP_TOKEN,
-        "user": configuration.USER_KEY,
+        "token": notification_config.PUSHOVER_APP_TOKEN,
+        "user": notification_config.USER_KEY,
         "message": body,
       }), { "Content-type": "application/x-www-form-urlencoded" })
     response = conn.getresponse()
@@ -77,7 +77,7 @@ def send_pushbullet_notification(title, body):
     '''
     data_send = {"type": "note", "title": title, "body": body}
     resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
-                         headers={'Authorization': 'Bearer ' + configuration.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
+                         headers={'Authorization': 'Bearer ' + notification_config.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
     if resp.status_code != 200:
         raise Exception('Something wrong')
     else:
