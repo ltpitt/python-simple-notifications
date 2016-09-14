@@ -6,9 +6,10 @@ A tiny Python module to send out Email and push notifications (Pushover, Pushbul
 * Clone the repository or simply download it as a zip file and unzip it in your local folder
 * If you have **pip** skip to next step. You need it to easily install requirements, if you do not have it you can install it using this tutorial: https://pip.pypa.io/en/latest/installing.html 
 * Run this command to install requirements: pip install -r requirements.txt
-* Customize the variables at the beginning of notification.py with your Email / Pushbullet / Pushover data
+* Customize the variables at the beginning of notification_config.py with your Email / Pushbullet / Pushover data
+* **!!! Be sure that no other user can read notification_config.py modifying accordingly its permissions !!!**
 
-You are now good to go!
+You are now good to go.
 
 Run from command line:  
 python notification.py
