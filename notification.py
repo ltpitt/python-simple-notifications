@@ -12,50 +12,39 @@
 # This script sends notification using
 # Email, Pushbullet or Pushover
 #
-# It has been tested using smtp.gmail.com and port 587
+# Please put your data into configure.py before using this script
 
+import configuration
 import requests
 import json
 import smtplib
 import sys
-from email.mime.text import MIMEText
 import httplib, urllib
+from email.mime.text import MIMEText
 
-# Email notification parameters
 server = smtplib.SMTP()
-EMAIL_SENDER = 'YOUR_EMAIL'
-EMAIL_PASSWORD = 'YOUR_PASSWORD'
-EMAIL_SERVER = 'smtp.gmail.com'
-EMAIL_SERVER_PORT = '587'
-EMAIL_DEBUG_LEVEL = '1'
-
-
-# Push notification parameters (Pushover)
-PUSHOVER_APP_TOKEN = 'YOUR_APP_TOKEN'
-USER_KEY = 'YOUR_USER_KEY'
-
-
-# Push notification parameters (Pushbullet)
-PUSHBULLET_APP_TOKEN = 'YOUR_APP_TOKEN'
-
 
 def send_email(email_subject, notification_msg, email_recipients):
     '''
     This functions sends a notification using Email
+            Args:
+            email_subject (str) : Email Subject.
+            notification_msg (str) : Email Body.
+            email_recipients (str) : Email recipients.
     '''
-    server.connect(EMAIL_SERVER, EMAIL_SERVER_PORT)
-    if EMAIL_DEBUG_LEVEL == '1':
+    server.connect(configuration.EMAIL_SERVER, configuration.EMAIL_SERVER_PORT)
+    if configuration.EMAIL_DEBUG_LEVEL == '1':
         server.set_debuglevel(1)
     recipients = [email_recipients]
     msg = MIMEText(notification_msg)
     msg['Subject'] = email_subject
-    msg['From'] = EMAIL_SENDER
+    msg['From'] = configuration.EMAIL_SENDER
     msg['To'] = ', '.join(recipients)
     server.ehlo()
     server.starttls()
     server.ehlo
-    server.login(EMAIL_SENDER, EMAIL_PASSWORD)
-    server.sendmail(EMAIL_SENDER, recipients, msg.as_string())
+    server.login(configuration.EMAIL_SENDER, configuration.EMAIL_PASSWORD)
+    server.sendmail(configuration.EMAIL_SENDER, recipients, msg.as_string())
     server.quit()
 
 
@@ -68,8 +57,8 @@ def send_pushover_notification(body):
     conn = httplib.HTTPSConnection("api.pushover.net")
     conn.request("POST", "/1/messages.json",
       urllib.urlencode({
-        "token": PUSHOVER_APP_TOKEN,
-        "user": USER_KEY,
+        "token": configuration.PUSHOVER_APP_TOKEN,
+        "user": configuration.USER_KEY,
         "message": body,
       }), { "Content-type": "application/x-www-form-urlencoded" })
     response = conn.getresponse()
@@ -88,7 +77,7 @@ def send_pushbullet_notification(title, body):
     '''
     data_send = {"type": "note", "title": title, "body": body}
     resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
-                         headers={'Authorization': 'Bearer ' + PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
+                         headers={'Authorization': 'Bearer ' + configuration.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
     if resp.status_code != 200:
         raise Exception('Something wrong')
     else:
