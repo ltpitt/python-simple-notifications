@@ -11,9 +11,10 @@ A tiny Python module to send out Email and push notifications (Pushover, Pushbul
 
 You are now good to go.
 
-Run from command line:  
-python notification.py
+Run from command line:    
+***python notification.py***
 
-Email Example:     --email "Email Subject", "Email Message", "Email recipients"  
+You will receive the onscreen help:  
+***Email Example:     --email "Email Subject", "Email Message", "Email recipients"  
 Pusbullet Example: --pushbullet "Title", "Message"  
-Pushover Example:  --pushover "Message"  
+Pushover Example:  --pushover "Message"  ***
