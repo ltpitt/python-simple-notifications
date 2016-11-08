@@ -11,13 +11,43 @@ A tiny Python module to send out Email and push notifications (Pushover, Pushbul
 
 You are now good to go.
 
-Run from command line:    
+Now you can run from command line:    
 ***python notification.py***
 
-You will receive the onscreen help:  
+This will produce the onscreen help:  
 ***Email Example:     --email "Email Subject", "Email Message", "Email recipients"***  
 ***Pusbullet Example: --pushbullet "Title", "Message"***  
 ***Pushover Example:  --pushover "Message"***  
   
-Complete command example:  
-***python notification.py --pushover "Hello, world!"***  
+Here you can copy a complete command example, using email:  
+***python notification.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
+
+If you prefer using the function from another Python script you can simply import notification.py (be sure that all files are in the same folder):  
+```python
+# This is a simple script to show how to integrate notification.py in your projects
+# In this script I am just checking when the Trolls movie DVD will be released scaping a web page
+# When it is released I get a notification :)
+#
+# Feel free to customize url_to_check and string_to_check for your needs
+#
+#!/bin/python
+
+import urllib2
+import re
+# Row below imports notification.py (be sure to save this script in the same folder to make it work)
+import notification
+
+url_to_check = 'http://www.dvdsreleasedates.com/movies/5974/Trolls-2016.html'
+string_to_check = 'not announced'
+
+html_content = urllib2.urlopen(url_to_check).read()
+matches = re.findall(string_to_check, html_content);
+
+if len(matches) == 0:
+# Row below contains the notification part
+   notification.send_pushover_notification(stuff_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
+   print '*** ' + string_to_check + ' ***' + ' - Not found in site!'
+else:
+   print '*** ' + string_to_check + ' ***' + ' - Found in site!'
+
+```
