@@ -15,6 +15,6 @@ Run from command line:
 ***python notification.py***
 
 You will receive the onscreen help:  
-***Email Example:     --email "Email Subject", "Email Message", "Email recipients"  
-Pusbullet Example: --pushbullet "Title", "Message"  
-Pushover Example:  --pushover "Message"  ***
+***Email Example:     --email "Email Subject", "Email Message", "Email recipients"***  
+***Pusbullet Example: --pushbullet "Title", "Message"***  
+***Pushover Example:  --pushover "Message"***  
