@@ -5,7 +5,7 @@ A tiny Python module to send out Email and push notifications (Pushover, Pushbul
 * **Python** (<3) is required. If you have Linux or Mac you should be good to go and you should skip to the next step, if you're on Windows and you like lazy'n'great you can install Python with a couple clicks from: http://ninite.com
 * Clone the repository or simply download it as a zip file and unzip it in your local folder
 * If you have **pip** skip to next step. You need **pip** to easily install requirements, if you do not have **pip** you can install it using this tutorial: https://pip.pypa.io/en/latest/installing.html 
-* Run this command (be sure to run it from notification.py folder) to install requirements: ***pip install -r requirements.txt***
+* Run this command (be sure to run it from simple_notifications.py folder) to install requirements: ***pip install -r requirements.txt***
 * Customize the variables at the beginning of simple_notifications_config.py with your Email / Pushbullet / Pushover data
 * **!!! Be sure that no other user can read simple_notifications_config.py (you need to change file's permissions to achieve this result) !!!**
 
@@ -24,9 +24,9 @@ Here you can find a complete command example, using email notification:
 ***python simple_notifications.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
 
 ## How to import simple_notifications.py in another Python script
-If you prefer using the function from another Python script you can simply import notification.py (be sure that all files are in the same folder):  
+If you prefer using the function from another Python script you can simply import simple_notifications.py (be sure that all files are in the same folder):  
 ```python
-# This is a simple script to show how to integrate notification.py in your projects
+# This is a simple script to show how to integrate simple_notifications.py in your projects
 #
 # In this script I am just checking when the Trolls movie DVD will be released scaping a web page
 # When it is released I will get a notification :)
