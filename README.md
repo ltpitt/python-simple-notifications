@@ -11,7 +11,7 @@ A tiny Python module to send out Email and push notifications (Pushover, Pushbul
 
 You are now good to go.
 
-## How to use notification.py from command line
+## How to use simple_notifications.py from command line
 If you can run from command line:    
 ***python simple_notifications.py***
 
