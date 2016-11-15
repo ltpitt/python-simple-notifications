@@ -43,19 +43,19 @@ def send_email(email_subject, notification_msg, email_recipients):
             notification_msg (str) : Email Body.
             email_recipients (str) : Email recipients.
     '''
-    server.connect(notification_config.EMAIL_SERVER, notification_config.EMAIL_SERVER_PORT)
-    if notification_config.EMAIL_DEBUG_LEVEL == '1':
+    server.connect(simple_notifications_config.EMAIL_SERVER, simple_notifications_config.EMAIL_SERVER_PORT)
+    if simple_notifications_config.EMAIL_DEBUG_LEVEL == '1':
         server.set_debuglevel(1)
     recipients = [email_recipients]
     msg = MIMEText(notification_msg)
     msg['Subject'] = email_subject
-    msg['From'] = notification_config.EMAIL_SENDER
+    msg['From'] = simple_notifications_config.EMAIL_SENDER
     msg['To'] = ', '.join(recipients)
     server.ehlo()
     server.starttls()
     server.ehlo
-    server.login(notification_config.EMAIL_SENDER, notification_config.EMAIL_PASSWORD)
-    server.sendmail(notification_config.EMAIL_SENDER, recipients, msg.as_string())
+    server.login(simple_notifications_config.EMAIL_SENDER, simple_notifications_config.EMAIL_PASSWORD)
+    server.sendmail(simple_notifications_config.EMAIL_SENDER, recipients, msg.as_string())
     server.quit()
 
 
@@ -68,8 +68,8 @@ def send_pushover_notification(body):
     conn = httplib.HTTPSConnection("api.pushover.net")
     conn.request("POST", "/1/messages.json",
       urllib.urlencode({
-        "token": notification_config.PUSHOVER_APP_TOKEN,
-        "user": notification_config.USER_KEY,
+        "token": simple_notifications_config.PUSHOVER_APP_TOKEN,
+        "user": simple_notifications_config.USER_KEY,
         "message": body,
       }), { "Content-type": "application/x-www-form-urlencoded" })
     response = conn.getresponse()
@@ -88,7 +88,7 @@ def send_pushbullet_notification(title, body):
     '''
     data_send = {"type": "note", "title": title, "body": body}
     resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
-                         headers={'Authorization': 'Bearer ' + notification_config.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
+                         headers={'Authorization': 'Bearer ' + simple_notifications_config.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
     if resp.status_code != 200:
         raise Exception('Something wrong')
     else:
