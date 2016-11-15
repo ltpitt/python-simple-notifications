@@ -1,28 +1,39 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
 #
-#  ______________________
-# / Simple Notifications \
-# \ By Davide Nastri     /
-#  ----------------------
+#  ___________________________
+# / Simple Push Notifications \
+# \ By Davide Nastri          /
+#  ---------------------------
 #     \ ^__^
 #      \(oo)\_______
 #       (__)\       )\/\
 #         ||-----w |
 #         ||      ||
 #
-# This script sends notification using
+# This script sends push notification using
 # Email, Pushbullet or Pushover
 #
 # Please put your data into configure.py before using this script
 
-import notification_config
+"""
+Simple Push Notifications v{version}
+
+Usage:
+  notifications.py --email <subject> <message> <recipients>
+  notifications.py --pushbullet <title> <message>
+  notifications.py --pushover <message>
+"""
+
 import requests
 import json
 import sys
 import httplib, urllib
 from email.mime.text import MIMEText
 import smtplib
-
 server = smtplib.SMTP()
+import notification_config
+import docopt
 
 def send_email(email_subject, notification_msg, email_recipients):
     '''
@@ -84,41 +95,12 @@ def send_pushbullet_notification(title, body):
         print 'Sending complete'
 
 
-def display_help():
-    '''
-    This functions displays the command help
-    '''
-    print 'Email     Example: --email "Email Subject" "Email Message" "Email recipients"'
-    print 'Pusbullet Example: --pushbullet "Title" "Message"'
-    print 'Pushover  Example: --pushover "Message"'
-
-
-def main():
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "--email":
-            print len(sys.argv)
-            if len(sys.argv) == 5:
-                EMAIL_SUBJECT = sys.argv[2]
-                EMAIL_MESSAGE = sys.argv[3]
-                EMAIL_RECIPIENTS = sys.argv[4]
-                send_email(EMAIL_SUBJECT, EMAIL_MESSAGE, EMAIL_RECIPIENTS)
-            else:
-                display_help()
-        elif sys.argv[1] == "--pushover":
-            if len(sys.argv) == 3:
-                send_pushover_notification(sys.argv[2])
-            else:
-                display_help()
-        elif sys.argv[1] == "--pushbullet":
-            if len(sys.argv) == 4:
-                send_pushbullet_notification(sys.argv[2], sys.argv[3])
-            else:
-                display_help()
-        else:
-            display_help()
-    else:
-        display_help()
-
-
 if __name__ == '__main__':
-    main()
+    print "Simple Push Notification\n"
+    arguments = docopt.docopt(__doc__, version='0.7')
+    if arguments['--email']:
+        send_email(arguments['<subject>'], arguments['<message>'], arguments['<recipients>'])
+    elif arguments['--pushover']:
+        send_pushover_notification(arguments['<message>'])
+    elif arguments['--pushbullet']:
+        send_pushbullet_notification(arguments['<title>'], arguments['<message>'])
