@@ -17,7 +17,7 @@
 # Please put your data into configure.py before using this script
 
 """
-Simple Push Notifications v{version}
+Simple Notifications v{version}
 
 Usage:
   notifications.py --email <subject> <message> <recipients>
@@ -96,7 +96,7 @@ def send_pushbullet_notification(title, body):
 
 
 if __name__ == '__main__':
-    print "Simple Push Notification\n"
+    print "Simple Notifications\n"
     arguments = docopt.docopt(__doc__, version='0.7')
     if arguments['--email']:
         send_email(arguments['<subject>'], arguments['<message>'], arguments['<recipients>'])
