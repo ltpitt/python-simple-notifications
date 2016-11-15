@@ -13,7 +13,7 @@ You are now good to go.
 
 ## How to use notification.py from command line
 If you can run from command line:    
-***python notification.py***
+***python simple_notifications.py***
 
 This will produce the onscreen help:  
 ***Email Example:     --email "Email Subject", "Email Message", "Email recipients"***  
@@ -21,9 +21,9 @@ This will produce the onscreen help:
 ***Pushover Example:  --pushover "Message"***  
   
 Here you can find a complete command example, using email notification:  
-***python notification.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
+***python simple_notifications.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
 
-## How to import notification.py in another Python script
+## How to import simple_notifications.py in another Python script
 If you prefer using the function from another Python script you can simply import notification.py (be sure that all files are in the same folder):  
 ```python
 # This is a simple script to show how to integrate notification.py in your projects
@@ -37,8 +37,8 @@ If you prefer using the function from another Python script you can simply impor
 
 import urllib2
 import re
-# Row below imports notification.py (be sure to save this script in the same folder to make it work)
-import notification
+# Row below imports simple_notifications.py (be sure to save this script in the same folder to make it work)
+import simple_notifications
 
 url_to_check = 'http://www.dvdsreleasedates.com/movies/5974/Trolls-2016.html'
 string_to_check = 'not announced'
@@ -48,7 +48,7 @@ matches = re.findall(string_to_check, html_content);
 
 if len(matches) == 0:
 # Row below contains the notification part
-   notification.send_pushover_notification(stuff_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
+   simple_notifications.send_pushover_notification(stuff_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
    print '*** ' + string_to_check + ' ***' + ' - Not found in site!'
 else:
    print '*** ' + string_to_check + ' ***' + ' - Found in site!'
