@@ -1,4 +1,4 @@
-# Notification
+# Simple Notifications
 A tiny Python module to send out Email and push notifications (Pushover, Pushbullet) from your applications
 
 ## How to install
