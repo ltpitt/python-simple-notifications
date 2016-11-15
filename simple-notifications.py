@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 #
-#  ___________________________
-# / Simple Push Notifications \
-# \ By Davide Nastri          /
-#  ---------------------------
+#  ______________________
+# / Simple Notifications \
+# \ By Davide Nastri     /
+#  ----------------------
 #     \ ^__^
 #      \(oo)\_______
 #       (__)\       )\/\
