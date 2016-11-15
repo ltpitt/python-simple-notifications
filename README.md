@@ -27,8 +27,9 @@ Here you can find a complete command example, using email notification:
 If you prefer using the function from another Python script you can simply import notification.py (be sure that all files are in the same folder):  
 ```python
 # This is a simple script to show how to integrate notification.py in your projects
+#
 # In this script I am just checking when the Trolls movie DVD will be released scaping a web page
-# When it is released I get a notification :)
+# When it is released I will get a notification :)
 #
 # Feel free to customize url_to_check and string_to_check for your needs
 #
