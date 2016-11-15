@@ -32,7 +32,7 @@ import httplib, urllib
 from email.mime.text import MIMEText
 import smtplib
 server = smtplib.SMTP()
-import notification_config
+import simple_notification_config
 import docopt
 
 def send_email(email_subject, notification_msg, email_recipients):
