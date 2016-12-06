@@ -28,7 +28,7 @@ If you prefer using the function from another Python script you can simply impor
 ```python
 # This is a simple script to show how to integrate simple_notifications.py in your projects
 #
-# In this script I am just checking when the Trolls movie DVD will be released scaping a web page
+# In this script I am just checking when the Trolls movie DVD will be released scraping a web page
 # When it is released I will get a notification :)
 #
 # Feel free to customize url_to_check and string_to_check for your needs
