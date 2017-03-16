@@ -58,24 +58,21 @@ def send_email(email_subject, notification_msg, email_recipients):
     server.quit()
 
 
-def send_pushover_notification(title, body):
+def send_pushover_notification(title, message):
     '''
     This functions sends a notification using Pushover
         Args:
             title (str) : Title of notification.
-            body (str) : Body of notification.
+            message (str) : Message of notification.
     '''
     params = {
         'token': simple_notifications_config.PUSHOVER_APP_TOKEN,
         'user': simple_notifications_config.USER_KEY,
         'title': title,
-        'message': body,
-        'retry': 30, 
-        'expire': 180,
-        'priority': 2,
-        'sound': 'siren',
+        'message': message
         }
-    response = requests.post('https://api.pushover.net/1/messages.json', data=json_dumps(params))
+    response = requests.post('https://api.pushover.net/1/messages.json', data=params)
+    print json.dumps(params)
     if response.status_code != 200:
         print ('Something went wrong...')
         print response.content
@@ -83,14 +80,14 @@ def send_pushover_notification(title, body):
         print 'Sending complete'
 
 
-def send_pushbullet_notification(title, body):
+def send_pushbullet_notification(title, message):
     '''
     This function sends a notification using Pushbullet
         Args:
-            title (str) : Title of notification.
-            body (str) : Body of notification.
+            title (str)    : Title of notification.
+            message (str)  : Message of notification.
     '''
-    params = {"type": "note", "title": title, "body": body}
+    params = {"type": "note", "title": title, "body": message}
     response = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(params),
                          headers={'Authorization': 'Bearer ' + simple_notifications_config.PUSHBULLET_APP_TOKEN, 'Content-Type': 'application/json'})
     if response.status_code != 200:
