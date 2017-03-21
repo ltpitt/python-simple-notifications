@@ -20,7 +20,7 @@ This will produce the onscreen help:
 ***Pusbullet Example: --pushbullet "Title", "Message"***  
 ***Pushover Example:  --pushover "Message"***  
   
-Here you can find a complete command example, using email notification:  
+So, for example, here's how you can send an email notification from command line:  
 ***python simple_notifications.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
 
 ## How to import simple_notifications.py in another Python script
