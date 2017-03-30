@@ -48,7 +48,7 @@ matches = re.findall(string_to_check, html_content);
 
 if len(matches) == 0:
 # Row below contains the notification part
-   simple_notifications.send_pushover_notification(stuff_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
+   simple_notifications.send_pushover_notification(string_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
    print '*** ' + string_to_check + ' ***' + ' - Not found in site!'
 else:
    print '*** ' + string_to_check + ' ***' + ' - Found in site!'
