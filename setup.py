@@ -21,7 +21,7 @@ setup(
     install_requires=dependencies,
     entry_points={
         'console_scripts': [
-            'simple-notifications = simple_notifications.cli:main',
+            'simple-notifications = simple_notifications.cli:notification',
         ],
     },
     classifiers=[
