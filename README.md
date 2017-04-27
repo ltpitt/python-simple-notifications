@@ -1,59 +1,39 @@
 # Simple Notifications
-A tiny Python module to send out Email and push notifications (Pushover, Pushbullet) from your applications
+Simple Notifications is a cross-platform command line tool that allows you to easily send out Email and push notifications (Pushover, Pushbullet)  
 
 ## How to install
 * **Python** (<3) is required. If you have Linux or Mac you should be good to go and you should skip to the next step, if you're on Windows and you like lazy'n'great you can install Python with a couple clicks from: http://ninite.com
 * Clone the repository or simply download it as a zip file and unzip it in your local folder
-* If you have **pip** skip to next step. You need **pip** to easily install requirements, if you do not have **pip** you can install it using this tutorial: https://pip.pypa.io/en/latest/installing.html 
-* Run this command (be sure to run it from simple_notifications.py folder) to install requirements: ***pip install -r requirements.txt***
-* Customize the variables at the beginning of simple_notifications_config.py with your Email / Pushbullet / Pushover data
-* **!!! Be sure that no other user can read simple_notifications_config.py (you need to change file's permissions to achieve this result) !!!**
 
-You are now good to go.
+Now you have two choices: pip or pipsi.  
 
-## How to use simple_notifications.py from command line
-If you can run from command line:    
-***python simple_notifications.py***
+Pip is the classic choice.  
+Here are [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
-This will produce the onscreen help:  
-***Email Example:     --email "Email Subject", "Email Message", "Email recipients"***  
-***Pusbullet Example: --pushbullet "Title", "Message"***  
-***Pushover Example:  --pushover "Message"***  
-  
-So, for example, here's how you can send an email notification from command line:  
-***python simple_notifications.py --email "Notification Email Subject" "A very important message" "any@email.com"***  
+Once pip is installed, from the script folder:
 
-## How to import simple_notifications.py in another Python script
-If you prefer using the function from another Python script you can simply import simple_notifications.py (be sure that all files are in the same folder):  
-```python
-# This is a simple script to show how to integrate simple_notifications.py in your projects
-#
-# In this script I am just checking when the Trolls movie DVD will be released scraping a web page
-# When it is released I will get a notification :)
-#
-# Feel free to customize url_to_check and string_to_check for your needs
-#
-#!/bin/python
+    $ pip install .
 
-import urllib2
-import re
-# Row below imports simple_notifications.py (be sure to save this script in the same folder to make it work)
-import simple_notifications
+The other option is pipsi.  
+If you don't use `pipsi`, you're missing out.  
+Here are [installation instructions](https://github.com/mitsuhiko/pipsi#readme).
 
-url_to_check = 'http://www.dvdsreleasedates.com/movies/5974/Trolls-2016.html'
-string_to_check = 'not announced'
+Once pipsi is installed, from the script folder: 
 
-html_content = urllib2.urlopen(url_to_check).read()
-matches = re.findall(string_to_check, html_content);
+    $ git clone https://github.com/ltpitt/python-github-backup.git
+    $ cd python-github-backup
+    $ pipsi install .
 
-if len(matches) == 0:
-# Row below contains the notification part
-   simple_notifications.send_pushover_notification(string_to_check + ' is now available\n\n<a href="' + url_to_check + '">Get it  now</a>')
-   print '*** ' + string_to_check + ' ***' + ' - Not found in site!'
-else:
-   print '*** ' + string_to_check + ' ***' + ' - Found in site!'
 
-```
+## Usage
+
+To use it:
+
+    $ simple-notifications --help
+
+## How to schedule automatic script execution
+* If you have Windows: https://technet.microsoft.com/en-us/library/cc748993(v=ws.11).aspx
+* If you have Linux or Mac: https://www.howtogeek.com/101288/how-to-schedule-tasks-on-linux-an-introduction-to-crontab-files/
 
 ### Contribution guidelines ###
 
