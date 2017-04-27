@@ -20,7 +20,7 @@ Here are [installation instructions](https://github.com/mitsuhiko/pipsi#readme).
 
 Once pipsi is installed, from the script folder: 
 
-    $ git clone https://github.com/ltpitt/python-github-backup.git
+    $ git clone https://github.com/ltpitt/python-simple-notifications.git
     $ cd python-github-backup
     $ pipsi install .
 
