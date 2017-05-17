@@ -24,6 +24,13 @@ Once pipsi is installed, from the script folder:
     $ cd python-github-backup
     $ pipsi install .
 
+As last step please customize simple_notifications_config.py with your email / Pushbullet / Pushover data  
+
+Example folder for a Windows 10 installation:  
+C:\Python27\Lib\site-packages\simple_notifications\simple_notifications_config.py  
+  
+Example folder for a Linux installation:  
+/usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  
 
 ## Usage
 
