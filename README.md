@@ -37,6 +37,23 @@ Example folder for a Linux installation:
 To use it:
 
     $ simple-notifications --help
+    
+    
+```bash
+Usage: simple-notifications [OPTIONS] COMMAND [ARGS]...
+
+  Simple Notifications sends out email and push notifications from your
+  applications (using Pushbullet or Pushover)
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  email       Send a notification using Email
+  pushbullet  Send a notification using Pushbullet
+  pushover    Send a notification using Pushover
+
+```
 
 ## How to schedule automatic script execution
 * If you have Windows: https://technet.microsoft.com/en-us/library/cc748993(v=ws.11).aspx
