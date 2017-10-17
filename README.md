@@ -34,7 +34,10 @@ Example simple_notification_config.py path for a Linux installation:
   
 As last step remember to make the simple_notification_config.py file readable only for the user that will run the script.  
   
-On Windows right click on the file, properties and then customize the permissions tab.  
+On Windows right click on the file, properties and then customize the permissions tab using this explanation:  
+  
+https://msdn.microsoft.com/en-us/library/bb727008.aspx
+
 On Linux:
   
     $ chmod 400 /usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  
