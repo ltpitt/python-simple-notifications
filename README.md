@@ -10,15 +10,17 @@ Now you have two choices: pip or pipsi.
 Pip is the classic choice.  
 Here are [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
-Once pip is installed, from the script folder:
+Once pip is installed:
 
+    $ git clone https://github.com/ltpitt/python-simple-notifications.git
+    $ cd python-github-backup
     $ pip install .
 
 The other option is pipsi.  
 If you don't use `pipsi`, you're missing out.  
 Here are [installation instructions](https://github.com/mitsuhiko/pipsi#readme).
 
-Once pipsi is installed, from the script folder: 
+Once pipsi is installed: 
 
     $ git clone https://github.com/ltpitt/python-simple-notifications.git
     $ cd python-github-backup
