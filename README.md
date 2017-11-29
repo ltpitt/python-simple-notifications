@@ -68,9 +68,6 @@ Commands:
 
 ```
 
-## How to schedule automatic script execution
-* If you have Windows: https://technet.microsoft.com/en-us/library/cc748993(v=ws.11).aspx
-* If you have Linux or Mac: https://www.howtogeek.com/101288/how-to-schedule-tasks-on-linux-an-introduction-to-crontab-files/
 
 ### Contribution guidelines ###
 
