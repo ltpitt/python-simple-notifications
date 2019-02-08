@@ -1,5 +1,5 @@
 # Simple Notifications
->Simple Notifications is a cross-platform command line tool that allows you to easily send out Email and push notifications (Pushover, Pushbullet)  
+>Simple Notifications is a cross-platform command line tool that allows to easily send out Email (also with attachment) and push notifications (using [Pushover](https://pushover.net) or [Pushbullet](https://www.pushbullet.com))  
 
 ## How to install
 * **Python** (<3) is required. If you have Linux or Mac you should be good to go and you should skip to the next step, if you're on Windows and you like lazy'n'great you can install Python with a couple clicks from: http://ninite.com
