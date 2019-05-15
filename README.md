@@ -37,11 +37,11 @@ On Linux:
 
 ## Usage
 
-To use it:
+Here's how to display help:
 
     $ simple-notifications --help
     
-    
+Output:    
 ```bash
 Usage: simple-notifications [OPTIONS] COMMAND [ARGS]...
 
