@@ -44,12 +44,12 @@ def pushover(subject, body):
         'message': body
         }
     response = requests.post('https://api.pushover.net/1/messages.json', data=params)
-    print json.dumps(params)
+    print (json.dumps(params))
     if response.status_code != 200:
         print ('Something went wrong...')
-        print response.content
+        print (response.content)
     else:
-        print 'Sending complete'
+        print ('Sending complete')
 
 @notification.command(help='Send a notification using Pushbullet')
 @click.option('--subject', help='Pushbullet notification subject', required=True)
@@ -68,7 +68,7 @@ def pushbullet(subject, body):
                                   'Content-Type': 'application/json'})
     if response.status_code != 200:
         print ('Something went wrong...')
-        print response.content
+        print (response.content)
     else:
         print ('Sending complete')
 
