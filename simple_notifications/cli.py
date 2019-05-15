@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-# Import config data
-import simple_notifications_config
+try:
+    # Python 2 import
+    import simple_notifications_config
+except:
+    # Python 3 import    
+    from . import simple_notifications_config
 # Import requests library, used for Pushbullet and Pushover notifications
 import requests
 # Import json library, used for Pushbullet notifications
