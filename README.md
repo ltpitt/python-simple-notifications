@@ -16,13 +16,13 @@ Once Python and Python Pip are installed:
 Then customize simple_notifications_config.py with the required Email / Pushbullet / Pushover configuration data.  It is easy to understand how if you read the comments in simple_notifications_config.py.  
 
 Example simple_notification_config.py path for a Windows 10 installation using Python 2.7:  
-C:\Python27\Lib\site-packages\simple_notifications\simple_notifications_config.py  
+`C:\Python27\Lib\site-packages\simple_notifications\simple_notifications_config.py  `
 
 Example simple_notification_config.py path for a Windows 10 installation using Python 3.7:  
-C:\Users\YOUR_USER\AppData\Local\Programs\Python\Python37\Lib\site-packages\simple_notifications  
+`C:\Users\YOUR_USER\AppData\Local\Programs\Python\Python37\Lib\site-packages\simple_notifications  `
   
 Example simple_notification_config.py path for a Linux installation:  
-/usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  
+`/usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  `
   
 As last step remember to make the simple_notification_config.py file readable only for the user that will run the script.  
   
