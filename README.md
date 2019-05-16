@@ -10,7 +10,7 @@
 Once Python and Python Pip are installed:
 
     $ git clone https://github.com/ltpitt/python-simple-notifications.git
-    $ cd python-github-backup
+    $ cd python-simple-notifications
     $ pip install .
 
 Then customize simple_notifications_config.py with the required Email / Pushbullet / Pushover configuration data.  It is easy to understand how if you read the comments in simple_notifications_config.py.  
