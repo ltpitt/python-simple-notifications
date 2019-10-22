@@ -33,12 +33,14 @@ def notification():
 @notification.command(help='Send a notification using Pushover')
 @click.option('--subject', help='Pushover notification subject', required=True)
 @click.option('--body', help='Pushover notification body', required=True)
-def pushover(subject, body):
+@click.option('--image', help='Pushover notification image', default="no")
+def pushover(subject, body, image):
     '''
     This functions sends a notification using Pushover
         Args:
             subject (str) : Title of notification.
             body    (str) : Message of notification.
+            image   (str) : Image filename of notification.
     '''
     click.echo('Sending out Pushover notification...')
     params = {
@@ -47,7 +49,11 @@ def pushover(subject, body):
         'title': subject,
         'message': body
         }
-    response = requests.post('https://api.pushover.net/1/messages.json', data=params)
+    if image != "no":
+        image = {"attachment": ("image.jpg", open(image, "rb"), "image/jpeg")}
+        response = requests.post('https://api.pushover.net/1/messages.json', data=params, files=image)
+    else:
+        response = requests.post('https://api.pushover.net/1/messages.json', data=params)
     print (json.dumps(params))
     if response.status_code != 200:
         print ('Something went wrong...')

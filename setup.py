@@ -7,7 +7,7 @@ dependencies = ['click']
 
 setup(
     name='simplenotifications',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/ltpitt/refactor',
     license='BSD',
     author='Davide Nastri',
