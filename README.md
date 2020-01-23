@@ -3,7 +3,7 @@
 
 ## Requirements
 * Python: if you have Linux or Mac you should be good to go and you should skip to the next step, if you're on Windows and you like lazy'n'great you can install Python with a couple clicks from: http://ninite.com
-* Python Pip: here are [installation instructions](https://pip.pypa.io/en/stable/installing/).  
+* Python Pip: it should be available in your Python install, in case it is not here are [installation instructions](https://pip.pypa.io/en/stable/installing/).  
 
 ## How to install
 
