@@ -12,7 +12,7 @@ def test_cli(runner):
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
     assert not result.exception
-    assert result.output.strip() == 'Hello, world.'
+    assert result.output.strip() == 'Just a test'
 
 
 def test_cli_with_option(runner):
