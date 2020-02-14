@@ -3,7 +3,7 @@ Simple Notifications sends out email and push notifications from your applicatio
 """
 from setuptools import find_packages, setup
 
-dependencies = ['click']
+dependencies = ['click', 'requests']
 
 setup(
     name='simplenotifications',
