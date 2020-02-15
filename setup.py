@@ -12,7 +12,8 @@ setup(
     license='BSD',
     author='Davide Nastri',
     author_email='d.nastri@gmail.com',
-    description='Simple Notifications sends out email and push notifications from your applications (using Pushbullet or Pushover)',
+    description='Simple Notifications sends out email and push notifications \
+     from your applications (using Pushbullet or Pushover)',
     long_description=__doc__,
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
