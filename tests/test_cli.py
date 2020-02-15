@@ -1,18 +1,24 @@
-import pytest
 from click.testing import CliRunner
-from simple_notifications import cli
+import simple_notifications
 
-
-@pytest.fixture
-def runner():
-    return CliRunner()
-
-
-def test_cli(runner):
-    result = runner.invoke(cli.main)
+def test_help():
+    runner = CliRunner()
+    result = runner.invoke(simple_notifications.notification)
     assert result.exit_code == 0
-    assert not result.exception
-    assert 'Usage: simple-notifications' in result.output.strip()
+    assert "Usage: simple-notifications" in result.output
+
+
+
+# @pytest.fixture
+# def runner():
+#     return CliRunner()
+#
+#
+# def test_cli(runner):
+#     result = runner.invoke(cli.main)
+#     assert result.exit_code == 0
+#     assert not result.exception
+#     assert 'Usage: simple-notifications' in result.output.strip()
 
 
 # def test_cli_with_option(runner):
