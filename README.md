@@ -1,4 +1,4 @@
-![](https://github.com/ltpitt/python-simple-notifications/blob/master/.github/workflows/pythonpackage.yml/badge.svg)
+![](https://github.com/ltpitt/simple-notifications/workflows/Python%20package/badge.svg)
 
 # Simple Notifications
 >Simple Notifications is a cross-platform command line tool that allows to easily send out Email (also with attachment) and push notifications (using [Pushover](https://pushover.net) or [Pushbullet](https://www.pushbullet.com))  
