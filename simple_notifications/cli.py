@@ -22,6 +22,7 @@ if sys.version_info[0] < 3:
 else:
     from . import simple_notifications_config
 
+
 @click.group()
 def notification():
     """
