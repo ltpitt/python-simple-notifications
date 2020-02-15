@@ -3,7 +3,7 @@ import simple_notifications
 
 def test_help():
     runner = CliRunner()
-    result = runner.invoke(simple_notifications.notification)
+    result = runner.invoke(simple_notifications.pushover)
     assert result.exit_code == 0
     assert "Usage: simple-notifications" in result.output
 
