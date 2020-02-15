@@ -4,7 +4,7 @@ try:
     # Python 2 import
     import simple_notifications_config
 except Exception as ex:
-    # Python 3 import    
+    # Python 3 import
     from . import simple_notifications_config
 # Import requests library, used for Pushbullet and Pushover notifications
 import requests
@@ -29,6 +29,7 @@ def notification():
     Simple Notifications sends out email and push notifications from your applications (using Pushbullet or Pushover)
     '''
     pass
+
 
 @notification.command(help='Send a notification using Pushover')
 @click.option('--subject', help='Pushover notification subject', required=True)
@@ -61,6 +62,7 @@ def pushover(subject, body, image):
     else:
         print ('Sending complete')
 
+        
 @notification.command(help='Send a notification using Pushbullet')
 @click.option('--subject', help='Pushbullet notification subject', required=True)
 @click.option('--body', help='Pushbullet notification body', required=True)
@@ -82,6 +84,7 @@ def pushbullet(subject, body):
     else:
         print ('Sending complete')
 
+        
 @notification.command(help='Send a notification using Email')
 @click.option('--subject', help='Email Subject', required=True)
 @click.option('--body', help='Email Body', required=True)
@@ -139,11 +142,10 @@ def email(subject, body, recipients, attachments):
     if simple_notifications_config.EMAIL_DEBUG_LEVEL == '1':
         server.set_debuglevel(1)
     server.starttls()
-    server.login(simple_notifications_config.EMAIL_SENDER,simple_notifications_config.EMAIL_PASSWORD)
+    server.login(simple_notifications_config.EMAIL_SENDER, simple_notifications_config.EMAIL_PASSWORD)
     server.sendmail(simple_notifications_config.EMAIL_SENDER, email_recipients, msg.as_string())
     server.quit()
 
 
-# Uncomment these rows for manual testing
-#if __name__ == '__main__':
-#    notification()
+if __name__ == '__main__':
+    notification()
