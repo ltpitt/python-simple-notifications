@@ -25,9 +25,9 @@ from email.mime.text import MIMEText
 
 @click.group()
 def notification():
-    '''
+    """
     Simple Notifications sends out email and push notifications from your applications (using Pushbullet or Pushover)
-    '''
+    """
     pass
 
 
@@ -36,69 +36,69 @@ def notification():
 @click.option('--body', help='Pushover notification body', required=True)
 @click.option('--image', help='Pushover notification image', default="no")
 def pushover(subject, body, image):
-    '''
+    """
     This functions sends a notification using Pushover
         Args:
             subject (str) : Title of notification.
             body    (str) : Message of notification.
             image   (str) : Image filename of notification.
-    '''
+    """
     click.echo('Sending out Pushover notification...')
     params = {
         'token': simple_notifications_config.PUSHOVER_APP_TOKEN,
         'user': simple_notifications_config.USER_KEY,
         'title': subject,
         'message': body
-        }
+    }
     if image != "no":
         image = {"attachment": ("image.jpg", open(image, "rb"), "image/jpeg")}
         response = requests.post('https://api.pushover.net/1/messages.json', data=params, files=image)
     else:
         response = requests.post('https://api.pushover.net/1/messages.json', data=params)
-    print (json.dumps(params))
+    print(json.dumps(params))
     if response.status_code != 200:
-        print ('Something went wrong...')
-        print (response.content)
+        print('Something went wrong...')
+        print(response.content)
     else:
-        print ('Sending complete')
+        print('Sending complete')
 
-        
+
 @notification.command(help='Send a notification using Pushbullet')
 @click.option('--subject', help='Pushbullet notification subject', required=True)
 @click.option('--body', help='Pushbullet notification body', required=True)
 def pushbullet(subject, body):
-    '''
+    """
     This function sends a notification using Pushbullet
         Args:
             subject (str)    : Title of notification.
             body    (str)    : Message of notification.
-    '''
+    """
     click.echo('Sending out Pushbullet notification...')
     params = {'type': 'note', 'title': subject, 'body': body}
     response = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(params),
-                         headers={'Authorization': 'Bearer ' + simple_notifications_config.PUSHBULLET_APP_TOKEN,
-                                  'Content-Type': 'application/json'})
+                             headers={'Authorization': 'Bearer ' + simple_notifications_config.PUSHBULLET_APP_TOKEN,
+                                      'Content-Type': 'application/json'})
     if response.status_code != 200:
-        print ('Something went wrong...')
-        print (response.content)
+        print('Something went wrong...')
+        print(response.content)
     else:
-        print ('Sending complete')
+        print('Sending complete')
 
-        
+
 @notification.command(help='Send a notification using Email')
 @click.option('--subject', help='Email Subject', required=True)
 @click.option('--body', help='Email Body', required=True)
 @click.option('--recipients', help='Separate multiple recipients using comma', required=True)
 @click.option('--attachments', help='Accepts complete file paths. Separate multiple attachments using comma')
 def email(subject, body, recipients, attachments):
-    '''
+    """
     This functions sends a notification using Email
             Args:
             subject     (str) : Email Subject.
             body        (str) : Email Body.
             recipients  (str) : Email recipients.
             attachments (str) : Email attachments.
-    '''
+    """
     click.echo('Sending out Email notification...')
     msg = MIMEMultipart()
     msg['From'] = simple_notifications_config.EMAIL_SENDER
