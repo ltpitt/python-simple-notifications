@@ -55,12 +55,11 @@ def pushover(subject, body, image):
         response = requests.post('https://api.pushover.net/1/messages.json', data=params, files=image)
     else:
         response = requests.post('https://api.pushover.net/1/messages.json', data=params)
-    print(json.dumps(params))
     if response.status_code != 200:
-        print('Something went wrong...')
-        print(response.content)
+        click.echo('Something went wrong...')
+        click.echo(response.content)
     else:
-        print('Sending complete')
+        click.echo('Sending complete.')
 
 
 @notification.command(help='Send a notification using Pushbullet')
@@ -79,10 +78,10 @@ def pushbullet(subject, body):
                              headers={'Authorization': 'Bearer ' + simple_notifications_config.PUSHBULLET_APP_TOKEN,
                                       'Content-Type': 'application/json'})
     if response.status_code != 200:
-        print('Something went wrong...')
-        print(response.content)
+        click.echo('Something went wrong...')
+        click.echo(response.content)
     else:
-        print('Sending complete')
+        click.echo('Sending complete.')
 
 
 @notification.command(help='Send a notification using Email')
@@ -145,6 +144,7 @@ def email(subject, body, recipients, attachments):
     server.login(simple_notifications_config.EMAIL_SENDER, simple_notifications_config.EMAIL_PASSWORD)
     server.sendmail(simple_notifications_config.EMAIL_SENDER, email_recipients, msg.as_string())
     server.quit()
+    click.echo('Sending complete.')
 
 
 if __name__ == '__main__':
