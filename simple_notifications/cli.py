@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-try:
-    # Python 2 import
+import sys
+# Checking Python version to use right import statement
+if sys.version_info[0] < 3:
     import simple_notifications_config
-except Exception as ex:
-    # Python 3 import
+else:
     from . import simple_notifications_config
 # Import requests library, used for Pushbullet and Pushover notifications
 import requests
