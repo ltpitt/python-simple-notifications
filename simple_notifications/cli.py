@@ -3,7 +3,7 @@
 try:
     # Python 2 import
     import simple_notifications_config
-except:
+except Exception as ex:
     # Python 3 import    
     from . import simple_notifications_config
 # Import requests library, used for Pushbullet and Pushover notifications
