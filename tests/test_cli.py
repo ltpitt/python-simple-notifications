@@ -1,9 +1,10 @@
 from click.testing import CliRunner
-import simple_notifications
+from simple_notifications import cli
+
 
 def test_help():
     runner = CliRunner()
-    result = runner.invoke(simple_notifications.pushover)
+    result = runner.invoke(cli.notification)
     assert result.exit_code == 0
     assert "Usage: simple-notifications" in result.output
 
