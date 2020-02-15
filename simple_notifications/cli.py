@@ -1,11 +1,5 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
-import sys
-# Checking Python version to use right import statement
-if sys.version_info[0] < 3:
-    import simple_notifications_config
-else:
-    from . import simple_notifications_config
 # Import requests library, used for Pushbullet and Pushover notifications
 import requests
 # Import json library, used for Pushbullet notifications
@@ -21,7 +15,12 @@ from email.mime.audio import MIMEAudio
 from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
-
+# Checking Python version to use right import statement syntax
+import sys
+if sys.version_info[0] < 3:
+    import simple_notifications_config
+else:
+    from . import simple_notifications_config
 
 @click.group()
 def notification():
