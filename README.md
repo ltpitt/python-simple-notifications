@@ -1,4 +1,9 @@
-![](https://github.com/ltpitt/simple-notifications/workflows/Python%20package/badge.svg)
+![build](https://github.com/ltpitt/python-simple-notifications/workflows/Python%20package/badge.svg)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/ltpitt/python-simple-notifications)](https://github.com/ltpitt/python-simple-notifications/issues)
+![Total Commits](https://img.shields.io/github/last-commit/ltpitt/python-simple-notifications)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/4w/ltpitt/python-simple-notifications?foo=bar)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 
 # Simple Notifications
 >Simple Notifications is a cross-platform command line tool that allows to easily send out Email (also with attachment) and push notifications (using [Pushover](https://pushover.net) or [Pushbullet](https://www.pushbullet.com))  
