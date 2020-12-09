@@ -2,7 +2,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues-raw/ltpitt/python-simple-notifications)](https://github.com/ltpitt/python-simple-notifications/issues)
 ![Total Commits](https://img.shields.io/github/last-commit/ltpitt/python-simple-notifications)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/4w/ltpitt/python-simple-notifications?foo=bar)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 
 # Simple Notifications
