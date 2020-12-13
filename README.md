@@ -31,7 +31,7 @@ Example simple_notification_config.py path for a Windows 10 installation using P
 Example simple_notification_config.py path for a Linux installation:  
 `/usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  `
   
-As last step remember to make the simple_notification_config.py file readable only for the user that will run the script.  
+As last step remember to make the simple_notification_config.py file readable only by the user that will run the script.  
   
 On Windows right click on the file, properties and then customize the permissions tab using this explanation:  
   
