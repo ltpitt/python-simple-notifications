@@ -25,11 +25,14 @@ Then customize simple_notifications_config.py with the required Email / Pushbull
 Example simple_notification_config.py path for a Windows 10 installation using Python 2.7:  
 `C:\Python27\Lib\site-packages\simple_notifications\simple_notifications_config.py  `
 
-Example simple_notification_config.py path for a Windows 10 installation using Python 3.7:  
-`C:\Users\YOUR_USER\AppData\Local\Programs\Python\Python37\Lib\site-packages\simple_notifications  `
+Example simple_notification_config.py path for a Windows 10 installation using Python 3.9:  
+`C:\Users\YOUR_USER\AppData\Local\Programs\Python\Python39\Lib\site-packages\simple_notifications  `
   
-Example simple_notification_config.py path for a Linux installation:  
+Example simple_notification_config.py path for a Linux installation using Python 2.7:  
 `/usr/local/lib/python2.7/dist-packages/simple_notifications/simple_notifications_config.py  `
+
+Example simple_notification_config.py path for a Linux installation using Python 3.9:  
+`/usr/local/lib/python3.9/dist-packages/simple_notifications/simple_notifications_config.py  `
   
 As last step remember to make the simple_notification_config.py file readable only by the user that will run the script.  
   
