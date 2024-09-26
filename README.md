@@ -1,4 +1,4 @@
-![build](https://github.com/ltpitt/python-simple-notifications/workflows/Python%20package/badge.svg)
+![CI](https://github.com/ltpitt/python-simple-notifications/workflows/CI/badge.svg)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/ltpitt/python-simple-notifications)](https://github.com/ltpitt/python-simple-notifications/issues)
 ![Total Commits](https://img.shields.io/github/last-commit/ltpitt/python-simple-notifications)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/4w/ltpitt/python-simple-notifications?foo=bar)
