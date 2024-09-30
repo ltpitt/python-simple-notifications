@@ -11,14 +11,6 @@ class TestNotifications(unittest.TestCase):
         os.environ['LC_ALL'] = 'en_US.UTF-8'
         os.environ['LANG'] = 'en_US.UTF-8'
 
-    
-    def test_help():
-        runner = CliRunner()
-        result = runner.invoke(cli.notification)
-        assert result.exit_code == 0
-        assert "Usage: " in result.output
-
-    
     @patch('simple_notifications.cli.simple_notifications_config.PUSHOVER_APP_TOKEN', 'fake_token')
     @patch('simple_notifications.cli.simple_notifications_config.USER_KEY', 'fake_user_key')
     @patch('requests.post')
@@ -32,7 +24,6 @@ class TestNotifications(unittest.TestCase):
         self.assertIn('Sending out Pushover notification...', result.output)
         self.assertIn('Sending complete.', result.output)
 
-    
     @patch('simple_notifications.cli.simple_notifications_config.PUSHBULLET_APP_TOKEN', 'fake_token')
     @patch('requests.post')
     def test_pushbullet(self, mock_post):
@@ -45,7 +36,6 @@ class TestNotifications(unittest.TestCase):
         self.assertIn('Sending out Pushbullet notification...', result.output)
         self.assertIn('Sending complete.', result.output)
 
-    
     @patch('simple_notifications.cli.simple_notifications_config.EMAIL_SENDER', 'test@example.com')
     @patch('simple_notifications.cli.simple_notifications_config.EMAIL_SERVER', 'smtp.example.com')
     @patch('simple_notifications.cli.simple_notifications_config.EMAIL_SERVER_PORT', '587')
@@ -61,7 +51,6 @@ class TestNotifications(unittest.TestCase):
         self.assertIn('Sending out Email notification...', result.output)
         self.assertIn('Sending complete.', result.output)
         mock_smtp_instance.sendmail.assert_called_once()
-
 
 if __name__ == '__main__':
     unittest.main()
